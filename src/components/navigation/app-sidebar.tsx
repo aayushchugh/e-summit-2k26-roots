@@ -7,6 +7,9 @@ import {
   Settings01Icon,
   UserIcon,
   ArrowDown01Icon,
+  Tick02Icon,
+  ArrowUp02Icon,
+  QrCodeIcon,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -48,6 +51,21 @@ const mainNavItems = [
     title: "Users",
     href: "/users",
     icon: People,
+  },
+  {
+    title: "Pass Verification",
+    href: "/pass-verification",
+    icon: Tick02Icon,
+  },
+  {
+    title: "Upgrade Requests",
+    href: "/upgrade-requests",
+    icon: ArrowUp02Icon,
+  },
+  {
+    title: "Payment Config",
+    href: "/payment-config",
+    icon: QrCodeIcon,
   },
 ];
 

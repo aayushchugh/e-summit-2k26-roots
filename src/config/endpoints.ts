@@ -23,4 +23,21 @@ export const endpoints = {
       endpoint: "/v1/users",
     },
   },
+  passes: {
+    paymentRequests: {
+      query: "getPaymentRequests",
+      endpoint: "/v1/passes/payment-requests",
+    },
+    upgradeRequests: {
+      query: "getUpgradeRequests",
+      endpoint: "/v1/passes/upgrade-requests",
+    },
+    paymentConfig: {
+      query: "getPaymentConfig",
+      endpoint: "/v1/passes/payment-config",
+    },
+    uploadScreenshot: {
+      endpoint: "/v1/passes/upload-screenshot",
+    },
+  },
 };
