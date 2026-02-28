@@ -8,6 +8,7 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
+import { Badge } from "@/components/ui/badge";
 import { Pagination as PaginationData } from "@/lib/api";
 import {
   Pagination,
@@ -35,6 +36,34 @@ const columns: ColumnDef<User>[] = [
   {
     accessorKey: "role",
     header: "Role",
+  },
+  {
+    id: "pass",
+    header: "Pass",
+    cell: ({ row }) => {
+      const pass = row.original.pass;
+      if (!pass) return <span className="text-muted-foreground">—</span>;
+
+      const variant =
+        pass.status === "approved"
+          ? "default"
+          : pass.status === "rejected"
+            ? "destructive"
+            : "secondary";
+
+      return (
+        <div className="flex items-center gap-1.5">
+          <Badge variant={variant} className="text-xs">
+            {pass.name}
+          </Badge>
+          {pass.status !== "approved" && (
+            <span className="text-[10px] text-muted-foreground capitalize">
+              ({pass.status.replace("_", " ")})
+            </span>
+          )}
+        </div>
+      );
+    },
   },
 ];
 

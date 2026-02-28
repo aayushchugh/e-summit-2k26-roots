@@ -37,6 +37,7 @@ export function UsersPage() {
                 <TableHead>Last Name</TableHead>
                 <TableHead>Email</TableHead>
                 <TableHead>Role</TableHead>
+                <TableHead>Pass</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
@@ -53,6 +54,9 @@ export function UsersPage() {
                   </TableCell>
                   <TableCell>
                     <Skeleton className="h-4 w-16" />
+                  </TableCell>
+                  <TableCell>
+                    <Skeleton className="h-4 w-20" />
                   </TableCell>
                 </TableRow>
               ))}
