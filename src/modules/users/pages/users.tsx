@@ -33,7 +33,6 @@ export function UsersPage() {
           <Table>
             <TableHeader>
               <TableRow>
-                <TableHead>Avatar</TableHead>
                 <TableHead>First Name</TableHead>
                 <TableHead>Last Name</TableHead>
                 <TableHead>Email</TableHead>
@@ -43,9 +42,6 @@ export function UsersPage() {
             <TableBody>
               {Array.from({ length: SKELETON_ROWS }).map((_, i) => (
                 <TableRow key={i}>
-                  <TableCell>
-                    <Skeleton className="h-8 w-8 rounded-full" />
-                  </TableCell>
                   <TableCell>
                     <Skeleton className="h-4 w-24" />
                   </TableCell>

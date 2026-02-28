@@ -10,5 +10,4 @@ export type User = {
   firstName: string;
   lastName?: string | null;
   role: UserRole;
-  avatar?: string | null;
 };

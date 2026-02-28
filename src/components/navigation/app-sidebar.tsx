@@ -35,7 +35,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "../ui/dropdown-menu";
-import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
+import { Avatar, AvatarFallback } from "../ui/avatar";
 import { getInitials } from "@/lib/utils";
 
 const mainNavItems = [
@@ -75,7 +75,7 @@ export function AppSidebar() {
     },
   });
 
-  const userInitials = getInitials(user?.firstName, user?.lastName);
+  const userInitials = getInitials(user?.firstName ?? undefined, user?.lastName ?? undefined);
 
   return (
     <Sidebar collapsible="icon">
@@ -170,7 +170,6 @@ export function AppSidebar() {
                 }
               >
                 <Avatar className="size-8 shrink-0">
-                  <AvatarImage src={user?.avatar} alt={user?.firstName} />
                   <AvatarFallback className="bg-linear-to-br from-primary/80 to-primary text-primary-foreground">
                     {userInitials}
                   </AvatarFallback>
@@ -197,7 +196,6 @@ export function AppSidebar() {
               >
                 <div className="flex items-center gap-2 px-2 py-2">
                   <Avatar className="size-8 shrink-0">
-                    <AvatarImage src={user?.avatar} alt={user?.firstName} />
                     <AvatarFallback className="bg-linear-to-br from-primary/80 to-primary text-primary-foreground">
                       {userInitials}
                     </AvatarFallback>

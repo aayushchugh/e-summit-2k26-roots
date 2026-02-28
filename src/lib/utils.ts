@@ -11,11 +11,14 @@ export function cn(...inputs: ClassValue[]) {
  * @param lastName - Last name (optional)
  * @returns Uppercase initials (e.g., "AC" for "Ayush Chugh")
  */
-export function getInitials(firstName?: string, lastName?: string): string {
+export function getInitials(
+  firstName?: string | null,
+  lastName?: string | null,
+): string {
   if (!firstName) return "U";
 
   const firstInitial = firstName.charAt(0);
-  const lastInitial = lastName?.charAt(0) || "";
+  const lastInitial = lastName?.charAt(0) ?? "";
 
   return `${firstInitial}${lastInitial}`.toUpperCase();
 }

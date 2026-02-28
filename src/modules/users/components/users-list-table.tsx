@@ -8,8 +8,6 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { getInitials } from "@/lib/utils";
 import { Pagination as PaginationData } from "@/lib/api";
 import {
   Pagination,
@@ -22,20 +20,6 @@ import {
 } from "@/components/ui/pagination";
 
 const columns: ColumnDef<User>[] = [
-  {
-    accessorKey: "avatar",
-    header: "Avatar",
-    cell: ({ row }) => {
-      return (
-        <Avatar>
-          <AvatarImage src={row.original.avatar} />
-          <AvatarFallback>
-            {getInitials(row.original.firstName, row.original.lastName)}
-          </AvatarFallback>
-        </Avatar>
-      );
-    },
-  },
   {
     accessorKey: "firstName",
     header: "First Name",
