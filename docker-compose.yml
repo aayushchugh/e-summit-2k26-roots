@@ -1,0 +1,28 @@
+# Roots — Next.js admin dashboard
+# Usage: docker compose up -d
+# Build with API URL: NEXT_PUBLIC_API_BASE_URL=http://api:8000 docker compose up -d
+
+services:
+  roots:
+    image: e-summit-2k26-roots
+    container_name: e-summit-2k26-roots
+    ports:
+      - "3012:3012"
+    environment:
+      NODE_ENV: production
+      PORT: "3012"
+      NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://localhost:8000}
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        NEXT_PUBLIC_API_BASE_URL: ${NEXT_PUBLIC_API_BASE_URL:-http://localhost:8000}
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "-q", "--spider", "http://localhost:3012/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
