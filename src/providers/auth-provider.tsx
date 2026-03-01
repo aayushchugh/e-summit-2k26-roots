@@ -14,12 +14,14 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   });
 
   useEffect(() => {
-    if (data?.data.payload.user.email) {
-      setUser(data?.data.payload.user);
+    const userFromResponse = data?.data?.payload?.user;
+    if (userFromResponse?.email) {
+      setUser(userFromResponse);
+    } else if (!isLoading && data !== undefined) {
+      setUser(null);
     }
-
     setIsLoading(isLoading);
-  }, [data?.data.payload.user, setUser, isLoading, setIsLoading]);
+  }, [data?.data?.payload?.user, setUser, isLoading, setIsLoading]);
 
   return <>{children}</>;
 }

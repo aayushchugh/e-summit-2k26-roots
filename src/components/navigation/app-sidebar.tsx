@@ -10,6 +10,7 @@ import {
   Tick02Icon,
   ArrowUp02Icon,
   QrCodeIcon,
+  Trophy,
 } from "@hugeicons/core-free-icons";
 import { HugeiconsIcon } from "@hugeicons/react";
 import {
@@ -56,6 +57,11 @@ const mainNavItems = [
     title: "Pass Verification",
     href: "/pass-verification",
     icon: Tick02Icon,
+  },
+  {
+    title: "Competition Registrations",
+    href: "/competition-registrations",
+    icon: Trophy,
   },
   {
     title: "Upgrade Requests",

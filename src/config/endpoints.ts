@@ -40,4 +40,14 @@ export const endpoints = {
       endpoint: "/v1/passes/upload-screenshot",
     },
   },
+  competitions: {
+    list: {
+      query: "getCompetitions",
+      endpoint: "/v1/competitions",
+    },
+    registrations: {
+      query: "getCompetitionRegistrations",
+      endpoint: "/v1/competitions/registrations",
+    },
+  },
 };

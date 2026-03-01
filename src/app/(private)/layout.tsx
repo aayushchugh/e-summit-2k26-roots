@@ -12,7 +12,9 @@ export default function PrivateLayout({ children }: { children: React.ReactNode 
   const router = useRouter();
 
   useEffect(() => {
-    if ((!user && !isLoading) || (user && user.role !== UserRole.SUPERADMIN)) {
+    const isAllowedRole =
+      user?.role === UserRole.SUPERADMIN || user?.role === UserRole.ADMIN;
+    if ((!user && !isLoading) || (user && !isAllowedRole)) {
       router.push("/login");
     }
   }, [user, isLoading, router]);
